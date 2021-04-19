@@ -1,9 +1,18 @@
-// global variables
+// required packages
 const fs = require("fs");
-
 const generateHTML = require("./src/generateHTML");
-
 const inquirer = require("inquirer");
+
+//outside variables
+const employee = require("./lib/employee");
+const engineer = require("./lib/engineer");
+const intern = require("./lib/intern");
+const manager = require("./lib/manager");
+
+//team variable/ array of all team info from constructor classes
+const teamData = [];
+
+const writeFileAsync = util.promisify(fs.writeFile);
 
 // manager questions
 const mgmtQuestions = () => {
@@ -113,16 +122,23 @@ const intQuestions = () => {
 //     // create function to write README file
 // };
 
-const init = () => {
-    console.log("Please answer the following questions in order to generate your team profile.")
-    promptUser()
-    .then((answers) => {
-        console.log(answers);
-        return writeFileAsync('dist/README.md', generateMarkdown(answers))})
-    .then(() => console.log('Successfully wrote to README.md'))
-    .catch((err) => console.error(err));
+// const init = () => {
+//     console.log("Please answer the following questions in order to generate your team profile.")
+//     promptUser()
+//     .then((answers) => {
+//         console.log(answers);
+//         return writeFileAsync('dist/README.md', generateMarkdown(answers))})
+//     .then(() => console.log('Successfully wrote to README.md'))
+//     .catch((err) => console.error(err));
     
-}
+// }
+
+const init = () => {
+    promptUser()
+      .then((answers) => writeFileAsync('index.html', generateHTML(answers)))
+      .then(() => console.log('Successfully wrote to index.html'))
+      .catch((err) => console.error(err));
+  };
 
 init();
 
