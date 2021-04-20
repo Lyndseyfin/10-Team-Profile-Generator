@@ -2,12 +2,14 @@
 const fs = require("fs");
 const generateHTML = require("./src/generateHTML");
 const inquirer = require("inquirer");
+const path = require("path");
 
 //outside variables
 const employee = require("./lib/employee");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const manager = require("./lib/manager");
+const render = require("./lib/htmlRenderer");
 
 //team variable/ array of all team info from constructor classes
 const teamData = [];
@@ -73,9 +75,6 @@ const mgmtQuestions = () => {
     }
 ])};
 
-// module.exports = mgmtQuestions;
-
-
 // engineer questions
 const engQuestions = () => {
     inquirer.prompt ([
@@ -106,8 +105,6 @@ const engQuestions = () => {
         choices: ['Engineer', 'Intern', 'Done']
     }
     ])};
-
-// module.exports = engQuestions;
 
 
 // intern questions 
@@ -142,24 +139,6 @@ const intQuestions = () => {
     }
     ])};
 
-// module.exports = intQuestions;
-
-// const promptUser = () => {
-//     return inquirer.prompt(questions);
-//     // create function to write README file
-// };
-
-// const init = () => {
-//     console.log("Please answer the following questions in order to generate your team profile.")
-//     promptUser()
-//     .then((answers) => {
-//         console.log(answers);
-//         return writeFileAsync('dist/README.md', generateMarkdown(answers))})
-//     .then(() => console.log('Successfully wrote to README.md'))
-//     .catch((err) => console.error(err));
-    
-// }
-
 const init = () => {
     inquirer.prompt(empQuestions).then((data) => {
         teamData.push(new Manager(data.name, data.id, data.email, data.office))
@@ -170,8 +149,8 @@ const init = () => {
             intQuestions();
         }
         else{
-            generateHTML(teamData)
-    
+            let data = generateHTML(teamData);
+            fs.writeFileSync("team.html", data, "utf-8");
 
     //   .then((answers) => writeFileAsync('index.html', generateHTML(teamData)))
     //   .then(() => console.log('Successfully wrote to index.html'))
