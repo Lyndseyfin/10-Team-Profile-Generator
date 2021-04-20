@@ -149,9 +149,11 @@ const generateHTML = (data) => {
                 </div>
             </div>
         </div>
+
     </body>
+        ${generateCards(data)}
     
     </html>`
 };
 
-module.exports=generateHTML;
+module.exports = generateHTML;
