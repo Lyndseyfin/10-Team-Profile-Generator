@@ -9,42 +9,13 @@ const employee = require("./lib/employee");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const manager = require("./lib/manager");
-// const render = require("./lib/htmlRenderer");
 
 //team variable/ array of all team info from constructor classes
 const teamData = [];
 
-// employee questions
-const empQuestions = () => {
-    inquirer.prompt([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'What is the employee\'s name?'
-        },
-        {
-            type: 'input',
-            name: 'id',
-            message: 'What is the employee\'s id?'
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: 'What is the employee\'s email?'
-        },
-        {
-            type: 'list',
-            name: 'addEmp',
-            message: 'Would you like to add another employee to your team?',
-            choices: ['Manager', 'Engineer', 'Intern', 'Done']
-        }
-    ])
-};
-
-
 // manager questions
-const mgmtQuestions = () => {
-    inquirer.prompt([
+const mgmtQuestions = [
+
         {
             type: 'input',
             name: 'name',
@@ -63,7 +34,7 @@ const mgmtQuestions = () => {
         {
             type: 'input',
             name: 'office',
-            message: 'What is the manager\'s office number'
+            message: 'What is the manager\'s office number?'
         },
 
         {
@@ -72,8 +43,7 @@ const mgmtQuestions = () => {
             message: 'Would you like to add another employee to your team?',
             choices: ['Engineer', 'Intern', 'Done']
         }
-    ])
-};
+    ];
 
 // engineer questions
 const engQuestions = () => {
@@ -139,28 +109,11 @@ const intQuestions = () => {
             choices: ['Engineer', 'Intern', 'Done']
         }
     ])
-
-
-        .then((data) => {
-            teamData.push(
-                new Intern(data.name, data.id, data.email, data.school)
-            );
-            if (data.addEmp === "Engineer") {
-                empQuestions();
-            } else if (data.addEmp === "Intern") {
-                intQuestions();
-            } else {
-                let data = generateHTML(teamData);
-                fs.writeFileSync("team.html", data, "utf-8");
-            };
-
-        });
-
 };
 
 const init = () => {
-    inquirer.prompt(empQuestions).then((data) => {
-        teamData.push(new Manager(data.name, data.id, data.email, data.officeNumber))
+    inquirer.prompt(mgmtQuestions).then((data) => {
+        teamData.push(data.name, data.id, data.email, data.officeNumber)
         if (data.addEmp === "Engineer") {
             engQuestions();
         }
@@ -168,7 +121,6 @@ const init = () => {
             intQuestions();
         }
         else {
-            generateHTML(teamData);
             let data = generateHTML(teamData);
             fs.writeFileSync("team.html", data, "utf-8");
         }
