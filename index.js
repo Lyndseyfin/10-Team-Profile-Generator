@@ -9,7 +9,7 @@ const employee = require("./lib/employee");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const manager = require("./lib/manager");
-const render = require("./lib/htmlRenderer");
+// const render = require("./lib/htmlRenderer");
 
 //team variable/ array of all team info from constructor classes
 const teamData = [];
