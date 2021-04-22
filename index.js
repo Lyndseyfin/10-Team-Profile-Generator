@@ -9,6 +9,8 @@ const employee = require("./lib/employee");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
 const manager = require("./lib/manager");
+const Manager = require("./lib/manager");
+
 
 //team variable/ array of all team info from constructor classes
 const teamData = [];
@@ -109,20 +111,35 @@ const intQuestions = () => {
             choices: ['Engineer', 'Intern', 'Done']
         }
     ])
+    .then((data) => {
+        teamData.push(
+            new Intern(data.name, data.id, data.email, data.school)
+        );
+        if (data.members === "Engineer") {
+            engQuestions();
+        } else if (data.members === "Intern") {
+            intQuestions();
+        } else {
+            let data = generateHTML(teamData);
+            fs.writeFileSync("myteam.html", data, "utf-8");
+        }
+    });
 };
 
 const init = () => {
     inquirer.prompt(mgmtQuestions).then((data) => {
-        teamData.push(data.name, data.id, data.email, data.officeNumber)
+        teamData.push
+        (new Manager(data.name, data.id, data.email, data.officeNumber));
         if (data.addEmp === "Engineer") {
             engQuestions();
         }
-        else if (data.addEmp === "Intern") {
+        else if 
+        (data.addEmp === "Intern") {
             intQuestions();
         }
-        else {
+        else  {
             let data = generateHTML(teamData);
-            fs.writeFileSync("team.html", data, "utf-8");
+            fs.writeFileSync("myteam.html", data, "utf-8");
         }
 
     });

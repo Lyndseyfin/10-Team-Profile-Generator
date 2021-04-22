@@ -2,5 +2,27 @@
   "dependencies": {
     "inquirer": "^8.0.0",
     "jest": "^26.6.3"
-  }
+  },
+  "name": "10-Team-Profile-Generator",
+  "description": "1. [Title](Title)\r 2. [Description](#description)\r 3. [Installation](#installation)\r 4. [Usage](#usage)\r 5. [Contributing](#contribution)\r 6. [Tests](#tests)\r 7. [Questions](#questions)\r 8. [License](#demo)\r 9. [Demo](#demo)\r 10. [Screenshot](#screenshot)\r # Installation \r I used 'npm i' to insall all required pacakages.\r ## Usage\r Input 'node index.js' into your bash/terminal to generate questions.\r # Contribution\r Myself\r # Tests\r I used 'npm test' to run tests.\r # Questions\r ## GitHub \r  Lyndseyfin\r ## Email \r  lyndseyfinamore@gmail.com",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lyndseyfin/10-Team-Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lyndseyfin/10-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/Lyndseyfin/10-Team-Profile-Generator#readme"
 }
