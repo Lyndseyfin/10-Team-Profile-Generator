@@ -1,14 +1,10 @@
-// required packages
+// Global variables
 const fs = require("fs");
 const generateHTML = require("./src/generateHTML");
 const inquirer = require("inquirer");
-const path = require("path");
-
-//outside variables
-const employee = require("./lib/employee");
-const engineer = require("./lib/engineer");
-const intern = require("./lib/intern");
-const manager = require("./lib/manager");
+const Employee = require("./lib/employee");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 const Manager = require("./lib/manager");
 
 
@@ -18,34 +14,79 @@ const teamData = [];
 // manager questions
 const mgmtQuestions = [
 
+    {
+        type: 'input',
+        name: 'name',
+        message: 'What is the manager\'s name?'
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: 'What is the manager\'s id?'
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is the manager\'s email?'
+    },
+    {
+        type: 'input',
+        name: 'office',
+        message: 'What is the manager\'s office number?'
+    },
+
+    {
+        type: 'list',
+        name: 'addEmp',
+        message: 'Would you like to add another employee to your team?',
+        choices: ['Engineer', 'Intern', 'Done'],
+    },
+];
+
+const intQuestions = () => {
+    inquirer.prompt([
         {
             type: 'input',
             name: 'name',
-            message: 'What is the manager\'s name?'
+            message: 'What is the inter\'s name?'
         },
         {
             type: 'input',
             name: 'id',
-            message: 'What is the manager\'s id?'
+            message: 'What is the intern\'s id?'
         },
         {
             type: 'input',
             name: 'email',
-            message: 'What is the manager\'s email?'
+            message: 'What is the intern\'s email?'
         },
         {
             type: 'input',
-            name: 'office',
-            message: 'What is the manager\'s office number?'
+            name: 'school',
+            message: 'What school did the intern\'s attend?'
         },
 
         {
             type: 'list',
             name: 'addEmp',
             message: 'Would you like to add another employee to your team?',
-            choices: ['Engineer', 'Intern', 'Done']
-        }
-    ];
+            choices: ['Engineer', 'Intern', 'Done'],
+        },
+    ])
+        .then((data) => {
+            teamData.push
+            new Intern(data.name, data.id, data.email, data.school);
+            if (data.addEmp === "Engineer") {
+                engQuestions();
+            } else if (data.addEmp === "Intern") {
+                intQuestions();
+            } else {
+                let data = generateHTML(teamData);
+                fs.writeFileSync("myteam.html", data, "utf-8");
+            }
+        });
+
+}
 
 // engineer questions
 const engQuestions = () => {
@@ -74,77 +115,45 @@ const engQuestions = () => {
             type: 'list',
             name: 'addEmp',
             message: 'Would you like to add another employee to your team?',
-            choices: ['Engineer', 'Intern', 'Done']
-        }
-    ])
-};
-
-
-// intern questions 
-const intQuestions = () => {
-    inquirer.prompt([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'What is the inter\'s name?'
+            choices: ['Engineer', 'Intern', 'Done'],
         },
-        {
-            type: 'input',
-            name: 'id',
-            message: 'What is the intern\'s id?'
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: 'What is the intern\'s email?'
-        },
-        {
-            type: 'input',
-            name: 'school',
-            message: 'What school did the intern\'s attend?'
-        },
-
-        {
-            type: 'list',
-            name: 'addEmp',
-            message: 'Would you like to add another employee to your team?',
-            choices: ['Engineer', 'Intern', 'Done']
-        }
-    ])
-    .then((data) => {
-        teamData.push(
-            new Intern(data.name, data.id, data.email, data.school)
-        );
-        if (data.members === "Engineer") {
+    ]).then((data) => {
+        teamData.push
+        new Engineer(data.name, data.id, data.email, data.Github);
+        if (data.addEmp === "Engineer") {
             engQuestions();
-        } else if (data.members === "Intern") {
+        } else if (data.addEmp === "Intern") {
             intQuestions();
         } else {
             let data = generateHTML(teamData);
             fs.writeFileSync("myteam.html", data, "utf-8");
-        }
-    });
-};
+        };
+
+    })
+}
+// intern questions 
+
+
 
 const init = () => {
     inquirer.prompt(mgmtQuestions).then((data) => {
         teamData.push
-        (new Manager(data.name, data.id, data.email, data.officeNumber));
+        new Manager(data.name, data.id, data.email, data.officeNumber);
         if (data.addEmp === "Engineer") {
             engQuestions();
         }
-        else if 
-        (data.addEmp === "Intern") {
+        else if
+            (data.addEmp === "Intern") {
             intQuestions();
         }
-        else  {
+        else {
             let data = generateHTML(teamData);
             fs.writeFileSync("myteam.html", data, "utf-8");
         }
 
     });
-
 };
+
 
 //calling the function
 init();
