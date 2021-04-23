@@ -5,14 +5,14 @@ const generateManager = (data) => {
                 <div class="team-area col-12 d-flex justify-content-center">
                     <div class="card employee-card">
         <div class="card-header">
-            <h2 class="card-title">Levi</h2>
+            <h2 class="card-title">${data.name}</h2>
             <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
         </div>
         <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item">ID: 1</li>
-                <li class="list-group-item">Email: <a href="levi@fakemail.com">Levi@fakemail.com</a></li>
-                <li class="list-group-item">Office number: L1</li>
+                <li class="list-group-item">${data.id}</li>
+                <li class="list-group-item">Email: ${data.email}</li>
+                <li class="list-group-item">${data.number}</li>
             </ul>
         </div>
     </div>`
@@ -22,14 +22,14 @@ const generateEngineer = (data) => {
     return  `<li>
         <div class="card employee-card">
             <div class="card-header">
-                <h2 class="card-title">Jeremy</h2>
+                <h2 class="card-title">${data.name}/h2>
                 <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>Engineer</h3>
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    <li class="list-group-item">ID: 2</li>
-                    <li class="list-group-item">Email: <a href="jeremy@gakemail.com">Jeremy@fakemail.com</a></li>
-                    <li class="list-group-item">GitHub: <a href="https://github.com/JCtesttest" target="_blank" rel="noopener noreferrer">JCtesttest</a></li>
+                    <li class="list-group-item">${data.id}</li>
+                    <li class="list-group-item">Email: ${data.email}</li>
+                    <li class="list-group-item">GitHub:${data.github}</li>
                 </ul>
             </div>
         </div>`
@@ -45,9 +45,9 @@ const generateIntern = (data) => {
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    <li class="list-group-item">ID: 3</li>
-                    <li class="list-group-item">Email: <a href="chelsey@fakemail.com">Chelsey@fakemail.com</a></li>
-                    <li class="list-group-item">School: CUDenver</li>
+                    <li class="list-group-item">${data.id}</li>
+                    <li class="list-group-item">Email: ${data.email}</li>
+                    <li class="list-group-item">${data.school}</li>
                 </ul>
             </div>
         </div>`
@@ -103,53 +103,7 @@ const generateHTML = (data) => {
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="team-area col-12 d-flex justify-content-center">
-                    <div class="card employee-card">
-        <div class="card-header">
-            <h2 class="card-title">Levi</h2>
-            <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
-        </div>
-        <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item">ID: 1</li>
-                <li class="list-group-item">Email: <a href="levi@fakemail.com">Levi@fakemail.com</a></li>
-                <li class="list-group-item">Office number: L1</li>
-            </ul>
-        </div>
-    </div>
-    <div class="card employee-card">
-        <div class="card-header">
-            <h2 class="card-title">Jeremy</h2>
-            <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>Engineer</h3>
-        </div>
-        <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item">ID: 2</li>
-                <li class="list-group-item">Email: <a href="jeremy@gakemail.com">Jeremy@fakemail.com</a></li>
-                <li class="list-group-item">GitHub: <a href="https://github.com/JCtesttest" target="_blank" rel="noopener noreferrer">JCtesttest</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="card employee-card">
-        <div class="card-header">
-            <h2 class="card-title">Chelsey</h2>
-            <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>Intern</h3>
-        </div>
-        <div class="card-body">
-            <ul class="list-group">
-                <li class="list-group-item">ID: 3</li>
-                <li class="list-group-item">Email: <a href="chelsey@fakemail.com">Chelsey@fakemail.com</a></li>
-                <li class="list-group-item">School: CUDenver</li>
-            </ul>
-        </div>
-    </div>
-    
-                </div>
-            </div>
-        </div>
-
+     
     </body>
         ${generateCards(data)}
     
