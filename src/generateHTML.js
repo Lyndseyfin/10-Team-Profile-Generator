@@ -10,9 +10,9 @@ const generateManager = (data) => {
         </div>
         <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item">${data.id}</li>
-                <li class="list-group-item">Email: ${data.email}</li>
-                <li class="list-group-item">${data.number}</li>
+                <li class="list-group-item">ID: ${data.id}</li>
+                <li class="list-group-item">Email:<a href= "${data.email}">${data.email}</a></li>
+                <li class="list-group-item">Office Number: ${data.number}</li>
             </ul>
         </div>
     </div>`
@@ -27,9 +27,9 @@ const generateEngineer = (data) => {
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    <li class="list-group-item">${data.id}</li>
-                    <li class="list-group-item">Email: ${data.email}</li>
-                    <li class="list-group-item">GitHub:${data.github}</li>
+                    <li class="list-group-item">ID: ${data.id}</li>
+                    <li class="list-group-item">Email: <a href= ${data.email}">${data.email}</a></li>
+                    <li class="list-group-item">GitHub: <a href="${data.github}"></a></li>
                 </ul>
             </div>
         </div>`
@@ -45,9 +45,9 @@ const generateIntern = (data) => {
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    <li class="list-group-item">${data.id}</li>
-                    <li class="list-group-item">Email: ${data.email}</li>
-                    <li class="list-group-item">${data.school}</li>
+                    <li class="list-group-item">ID: ${data.id}</li>
+                    <li class="list-group-item">Email: <a href="${data.email}">${data.email}</a></li>
+                    <li class="list-group-item">School: ${data.school}</li>
                 </ul>
             </div>
         </div>`
@@ -106,8 +106,9 @@ const generateHTML = (data) => {
      
     </body>
         ${generateCards(data)}
-    
-    </html>`
-};
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        </body>
+        </html>`;
+    };
+ 
 module.exports = generateHTML;
