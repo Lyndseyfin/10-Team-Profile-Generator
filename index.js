@@ -84,7 +84,6 @@ const intQuestions = () => {
             } else {
                 let data = generateHTML(teamData);
                 fs.writeFileSync("myteam.html", data, "UTF-8");
-                console.log('Your Intern has been added')
             }
         });
 
