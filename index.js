@@ -149,6 +149,7 @@ const init = () => {
         else {
             let data = generateHTML(teamData);
             fs.writeFileSync("myteam.html", data, "utf-8");
+            console.log('Your myteam.html has been created!')
         }
 
     });
