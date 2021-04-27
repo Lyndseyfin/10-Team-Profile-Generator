@@ -1,8 +1,8 @@
 const generateManager = (data) => {
-    return   `<li>
-        <div class="container">
+    return `<li>
+        <main class="container">
             <div class="row">
-                <div class="team-area col-12 d-flex justify-content-center">
+            <div class="col-12 jumbotron mb-3">
                     <div class="card employee-card">
         <div class="card-header">
             <h2 class="card-title">${data.name}</h2>
@@ -11,17 +11,15 @@ const generateManager = (data) => {
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item">ID: ${data.id}</li>
-                <li class="list-group-item"><a href= "Email: ${data.email}"></a>${data.email}</li>
+                <li class="list-group-item">Email: <a href= "${data.email}"></a></li>
                 <li class="list-group-item">Office Number: ${data.office}</li>
             </ul>
-        </div>
     </div>`
 };
 
 const generateEngineer = (data) => {
-    return  `<li>
-    <div class="row">
-    <div class="team-area col-12 d-flex justify-content-center">
+    return `<li>
+    <div class="col-12 jumbotron mb-3">
         <div class="card employee-card">
             <div class="card-header">
                 <h2 class="card-title">${data.name}</h2>
@@ -35,13 +33,12 @@ const generateEngineer = (data) => {
                 </ul>
             </div>
         </div>`
-    };
-  
+};
+
 
 const generateIntern = (data) => {
-    return `<li>
-    <div class="row">
-    <div class="team-area col-12 d-flex justify-content-center">
+    return `<li>  
+    <div class="col-12 jumbotron mb-3">
         <div class="card employee-card">
             <div class="card-header">
                 <h2 class="card-title"></h2>
@@ -58,28 +55,28 @@ const generateIntern = (data) => {
 };
 
 const generateCards = (data) => {
-    
-    let htmlString ="";
+
+    let htmlString = "";
     data.forEach((element) => {
         console.log(element)
         if (element.getRole() === "Manager") {
             let string = generateManager(element);
             htmlString += string;
-        } 
-        else if 
+        }
+        else if
             (element.getRole() === "Engineer") {
-                let string = generateEngineer(element);
-                htmlString += string; 
-                
-        } 
-        else if 
+            let string = generateEngineer(element);
+            htmlString += string;
+
+        }
+        else if
             (element.getRole() === "Intern") {
             let string = generateIntern(element);
             htmlString += string;
         }
     });
     return htmlString;
-    
+
 };
 
 
@@ -107,11 +104,12 @@ const generateHTML = (data) => {
             </div>
         </div>
      
-    </body>
+    
         ${generateCards(data)}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        </main>
         </body>
         </html>`;
-    };
- 
+};
+
 module.exports = generateHTML;

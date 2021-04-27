@@ -1,4 +1,27 @@
-.cardbody {
-    width: 200px;
-    border-radius: 10px;
+.main {
+    width: 100px;
+    background-color:cadetblue;
 }
+.employee-card {
+    margin: 10px 10px 10px 10px;
+}
+
+.team-heading {
+    padding: 40px;
+    background-color:cadetblue;
+    text-align: center;
+    color:black;
+      
+}
+
+.card-header {
+  background-color:cadetblue;
+  color:black;
+}
+
+.list-group {
+background-color:cadetblue;
+color: black;
+}
+
+
