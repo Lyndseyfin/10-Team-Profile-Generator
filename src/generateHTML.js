@@ -56,10 +56,8 @@ const generateIntern = (data) => {
 const generateCards = (data) => {
     
     let htmlString ="";
-    //data will be an array of Employees (Manager/Intern/Engineer)
     data.forEach((element) => {
         console.log(element)
-        //generate a card based on role
         if (element.getRole() === "Manager") {
             let string = generateManager(element);
             htmlString += string;

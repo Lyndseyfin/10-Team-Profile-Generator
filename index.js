@@ -49,7 +49,7 @@ const intQuestions = () => {
         {
             type: 'input',
             name: 'name',
-            message: 'What is the inter\'s name?'
+            message: 'What is the intern\'s name?'
         },
         {
             type: 'input',
@@ -83,7 +83,7 @@ const intQuestions = () => {
                 intQuestions();
             } else {
                 let data = generateHTML(teamData);
-                fs.writeFileSync("myteam.html", data, "utf-8");
+                fs.writeFileSync("myteam.html", data, "UTF-8");
                 console.log('Your Intern has been added')
             }
         });
@@ -122,7 +122,7 @@ const engQuestions = () => {
 
     ]).then((data) => {
         teamData.push
-        new Engineer(data.name, data.id, data.email, data.Github);
+        new Engineer (data.name, data.id, data.email, data.Github);
         if (data.addEmp === "Engineer") {
             engQuestions();
         } else if (data.addEmp === "Intern") {
@@ -130,7 +130,7 @@ const engQuestions = () => {
 
         } else {
             let data = generateHTML(teamData);
-            fs.writeFileSync("myteam.html", data, "utf-8");
+            fs.writeFileSync("myteam.html", data, "UTF-8");
             console.log('Your Engineer has been added')
         };
 
@@ -139,15 +139,15 @@ const engQuestions = () => {
 
 const init = () => {
     inquirer.prompt(mgmtQuestions).then((data) => {
-        teamData.push;
-        new Manager(data.name, data.id, data.email, data.officeNumber);
+        teamData.push(
+        new Manager(data.name, data.id, data.email, data.office));
         if (data.addEmp === "Engineer") {
             engQuestions();
         } else if (data.addEmp === "Intern") {
             intQuestions();
         } else {
             let data = generateHTML(teamData);
-            fs.writeFileSync("myteam.html", data, "utf-8");
+            fs.writeFileSync("myteam.html", data, "UTF-8");
             console.log("Your myteam.html has been created!");
         }
     });
