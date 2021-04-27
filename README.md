@@ -1,7 +1,8 @@
 # 10-Team-Profile-Generator
 
 # Description
- 
+ I have created a NODE CLI team profile generator for a software engineering team based on the users input. Once user has input all required fields/answered all promted questions, an HTML webpage will be generated with the teams information. All tests have passed and the app is ready to go!
+
 # Table of Contents
 1. [Title](Title)
 2. [Description](#description)
@@ -16,11 +17,12 @@
 # Installation 
 I used 'npm i' to insall all required pacakages.
 ## Usage
-Input 'node index.js' into your bash/terminal to generate questions.
+User will need to run an npm install and then input 'node index.js' into you their bash/terminal to generate questions.
 # Contribution
 Myself
 # Tests
 I used 'npm test' to run tests.
+![screenshot](images/tests.png)
 # Questions
 ## GitHub 
  Lyndseyfin
@@ -34,4 +36,4 @@ I used 'npm test' to run tests.
 <a href= "">Demo</a>
 
 ## Screenshot
-![screenshot]()
+![screenshot](images/questions.png)

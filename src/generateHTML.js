@@ -54,6 +54,7 @@ const generateIntern = (data) => {
 };
 
 const generateCards = (data) => {
+    
     let htmlString ="";
     //data will be an array of Employees (Manager/Intern/Engineer)
     data.forEach((element) => {
