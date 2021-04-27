@@ -20,6 +20,8 @@ const generateManager = (data) => {
 
 const generateEngineer = (data) => {
     return  `<li>
+    <div class="row">
+    <div class="team-area col-12 d-flex justify-content-center">
         <div class="card employee-card">
             <div class="card-header">
                 <h2 class="card-title">${data.name}</h2>
@@ -38,6 +40,8 @@ const generateEngineer = (data) => {
 
 const generateIntern = (data) => {
     return `<li>
+    <div class="row">
+    <div class="team-area col-12 d-flex justify-content-center">
         <div class="card employee-card">
             <div class="card-header">
                 <h2 class="card-title"></h2>
