@@ -75,8 +75,8 @@ const intQuestions = () => {
         },
     ])
         .then((data) => {
-            teamData.push
-            new Intern(data.name, data.id, data.email, data.school);
+            teamData.push(
+            new Intern(data.name, data.id, data.email, data.school));
             if (data.addEmp === "Engineer") {
                 engQuestions();
             } else if (data.addEmp === "Intern") {
@@ -121,8 +121,8 @@ const engQuestions = () => {
         },
 
     ]).then((data) => {
-        teamData.push
-        new Engineer (data.name, data.id, data.email, data.Github);
+        teamData.push(
+        new Engineer (data.name, data.id, data.email, data.Github));
         if (data.addEmp === "Engineer") {
             engQuestions();
         } else if (data.addEmp === "Intern") {
