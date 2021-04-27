@@ -43,6 +43,7 @@ const mgmtQuestions = [
     },
 ];
 
+//intern questions
 const intQuestions = () => {
     inquirer.prompt([
         {
@@ -83,6 +84,7 @@ const intQuestions = () => {
             } else {
                 let data = generateHTML(teamData);
                 fs.writeFileSync("myteam.html", data, "utf-8");
+                console.log('Your Intern has been added')
             }
         });
 
@@ -117,6 +119,7 @@ const engQuestions = () => {
             message: 'Would you like to add another employee to your team?',
             choices: ['Engineer', 'Intern', 'Done'],
         },
+
     ]).then((data) => {
         teamData.push
         new Engineer(data.name, data.id, data.email, data.Github);
@@ -124,34 +127,29 @@ const engQuestions = () => {
             engQuestions();
         } else if (data.addEmp === "Intern") {
             intQuestions();
+
         } else {
             let data = generateHTML(teamData);
             fs.writeFileSync("myteam.html", data, "utf-8");
+            console.log('Your Engineer has been added')
         };
 
     })
 }
-// intern questions 
-
-
 
 const init = () => {
     inquirer.prompt(mgmtQuestions).then((data) => {
-        teamData.push
+        teamData.push;
         new Manager(data.name, data.id, data.email, data.officeNumber);
         if (data.addEmp === "Engineer") {
             engQuestions();
-        }
-        else if
-            (data.addEmp === "Intern") {
+        } else if (data.addEmp === "Intern") {
             intQuestions();
-        }
-        else {
+        } else {
             let data = generateHTML(teamData);
             fs.writeFileSync("myteam.html", data, "utf-8");
-            console.log('Your myteam.html has been created!')
+            console.log("Your myteam.html has been created!");
         }
-
     });
 };
 
