@@ -121,7 +121,7 @@ const engQuestions = () => {
 
     ]).then((data) => {
         teamData.push(
-        new Engineer (data.name, data.id, data.email, data.Github));
+        new Engineer (data.name, data.id, data.email, data.github));
         if (data.addEmp === "Engineer") {
             engQuestions();
         } else if (data.addEmp === "Intern") {

@@ -12,7 +12,7 @@ const generateManager = (data) => {
             <ul class="list-group">
                 <li class="list-group-item">ID: ${data.id}</li>
                 <li class="list-group-item">Email: <a href="${data.email}">${data.email}</a></li>
-                <li class="list-group-item">Office Number: ${data.office}</li>
+                <li class="list-group-item">Office Number: ${data.officeNumber}</li>
             </ul>
     </div>`
 };
@@ -29,7 +29,7 @@ const generateEngineer = (data) => {
                 <ul class="list-group">
                     <li class="list-group-item">ID: ${data.id}</li>
                     <li class="list-group-item">Email: <a href= "${data.email}">${data.email}</a></li>
-                    <li class="list-group-item">GitHub: <a href="https://github.com/${data.Github}"target="_blank">${data.Github}</a></li>
+                    <li class="list-group-item">GitHub: <a href="https://github.com/${data.github}"target="_blank">${data.github}</a></li>
                 </ul>
             </div>
         </div>`
