@@ -2,7 +2,7 @@ const generateManager = (data) => {
     return `<li>
         <main class="container">
             <div class="row">
-            <div class="col-12 jumbotron mb-3">
+            <div class="card" style="width: 18rem;">
                     <div class="card employee-card">
         <div class="card-header">
             <h2 class="card-title">${data.name}</h2>
@@ -11,7 +11,7 @@ const generateManager = (data) => {
         <div class="card-body">
             <ul class="list-group">
                 <li class="list-group-item">ID: ${data.id}</li>
-                <li class="list-group-item">Email: <a href= "${data.email}"></a></li>
+                <li class="list-group-item">Email: <a href="${data.email}">${data.email}</a></li>
                 <li class="list-group-item">Office Number: ${data.office}</li>
             </ul>
     </div>`
@@ -19,7 +19,7 @@ const generateManager = (data) => {
 
 const generateEngineer = (data) => {
     return `<li>
-    <div class="col-12 jumbotron mb-3">
+    <div class="card" style="width: 18rem;">
         <div class="card employee-card">
             <div class="card-header">
                 <h2 class="card-title">${data.name}</h2>
@@ -28,8 +28,8 @@ const generateEngineer = (data) => {
             <div class="card-body">
                 <ul class="list-group">
                     <li class="list-group-item">ID: ${data.id}</li>
-                    <li class="list-group-item">Email: <a href= "${data.email}"></a></li>
-                    <li class="list-group-item">GitHub: <a href="${data.github}"></a></li>
+                    <li class="list-group-item">Email: <a href= "${data.email}">${data.email}</a></li>
+                    <li class="list-group-item">GitHub: <a href="https://github.com/${data.Github}"target="_blank">${data.Github}</a></li>
                 </ul>
             </div>
         </div>`
@@ -38,16 +38,16 @@ const generateEngineer = (data) => {
 
 const generateIntern = (data) => {
     return `<li>  
-    <div class="col-12 jumbotron mb-3">
+    <div class="card" style="width: 18rem;">
         <div class="card employee-card">
             <div class="card-header">
-                <h2 class="card-title"></h2>
+                <h2 class="card-title">${data.name}</h2>
                 <h3 class="card-title"><i class="fas fa-user-graduate mr-2">${data.getRole()}</i></h3>
             </div>
             <div class="card-body">
                 <ul class="list-group">
                     <li class="list-group-item">ID: ${data.id}</li>
-                    <li class="list-group-item">Email: <a href="${data.email}"></a></li>
+                    <li class="list-group-item">Email: <a href="${data.email}">${data.email}</a></li>
                     <li class="list-group-item">School: ${data.school}</li>
                 </ul>
             </div>
